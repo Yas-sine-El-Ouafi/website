@@ -2,9 +2,11 @@ from flask import Flask, render_template,send_file
 import json
 import os
 
+import requests, jsonify
+
 # create flask app
 app = Flask(__name__)
-
+GITHUB_USERNAME = 'Yas-sine-El-Ouafi'
 
 def get_projects():
     file_path = os.path.join('api','static', 'assets', 'projects.json')
@@ -25,7 +27,7 @@ def err_404(message):
 
 @app.route('/')
 def main_page():
-    return render_template('index.html', title='Muhammad Abdullah - Homepage')
+    return render_template('index.html', title='Yassine El Ouafi - Portfolio')
 
 
 @app.route('/home')
@@ -40,11 +42,37 @@ def about_page():
 def contact_page():
     return render_template('contact.html', title='Contact Page')
 
+@app.route('/contact2', methods=['GET', 'POST'])
+def contact_page2():
+    return render_template('contact2.html', title='Contact Page')
 
-@app.route('/projects')
+@app.route('/projects', methods=['GET', 'POST'])
 def projects_page():
-    return render_template('projects.html', title="Projects", cards=get_projects())
+    github_url = f"https://api.github.com/users/{GITHUB_USERNAME}/repos"
+    headers = {
+        'Authorization': f'token {env.GITHUB_TOKEN}',
+        'Accept': 'application/vnd.github.v3+json'
+    }
+    try:
+        # Fetch GitHub repos
+        response = requests.get(github_url, headers=headers)
+
+        # Check if API call was successful
+        if response.status_code == 200:
+            repos = response.json()
+            print(f"Fetched {len(repos)} repositories")  # Debugging: Check number of repos
+            return render_template('projects.html', repos=repos)
+        else:
+            error_info = response.json()
+            return jsonify({
+                'error': 'Failed to fetch repositories',
+                'status_code': response.status_code,
+                'message': error_info.get('message', 'Unknown error'),
+                'documentation_url': error_info.get('documentation_url')
+            }), response.status_code
+    except requests.exceptions.RequestException as e:
+        return jsonify({'error': 'API request failed', 'message': str(e)}), 500
 
 @app.route('/resume')
 def resume():
-    return send_file("static/assets/Muhammad Abdullah Web.pdf", as_attachment=True)
+    return send_file("static/assets/xx.pdf", as_attachment=False)

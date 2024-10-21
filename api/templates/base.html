@@ -13,10 +13,30 @@
     <link rel="icon" type="image/png" sizes="192x192" href="https://avatars.githubusercontent.com/u/82393213?v=4" />
     <link rel="icon" type="image/png" sizes="512x512" href="https://avatars.githubusercontent.com/u/82393213?v=4" />
     <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/82393213?v=4" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    
+    {% block head %}
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <link type="text/css" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
+    
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/home.js') }}"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+   
+
+{% endblock %}
+
+    
+</body>
 </head>
 
 <body>
@@ -26,18 +46,18 @@
             <div class="container">
                 <!-- Logo -->
                 <h1 id="logo">
-                    <a href="/"><img src="https://avatars.githubusercontent.com/u/82393213?v=4" alt="Logo" /></a>
+                    
                 </h1>
 
                 <!-- Navbar links -->
                 <ul class="nav-menu">
                     <li><a class="nav-link" href="{{ url_for('main_page') }}">HOME</a></li>
                     <li><a class="nav-link" href="{{ url_for('projects_page') }}">PROJECTS</a></li>
-                    <li><a class="nav-link" href="{{ url_for('contact_page') }}">CONTACT</a></li>
+                    <li><a class="nav-link" href="{{ url_for('contact_page2') }}">CONTACT</a></li>
                     <li><a class="nav-link" href="{{ url_for('about_page') }}">ABOUT</a></li>
                     <!-- <li><a class="nav-link" href="#">BlOG</a></li> -->
                     <li>
-                        <a class="btn btn-primary" href="{{ url_for('resume') }}">RESUME <i
+                        <a class="btn btn-primary" href="{{ url_for('resume') }}" target="">RESUME <i
                                 class="fas fa-arrow-right"></i></a>
                     </li>
 
@@ -71,10 +91,10 @@
     {% block footer %}
     <footer id="footer">
         <div class="container">
-            <a href="mailto:sipra58@gmail.com">sipra58@gmail.com</a>
+            <a href="mailto:yassine.el.ouafi26@gmail.com">yassine.el.ouafi26@gmail.com</a>
             <!-- Social links -->
             <div class="social">
-                <a href="https://www.linkedin.com/in/muhammad-abdullah-090215212/" target="_blank"><img
+                <a href="https://www.linkedin.com/in/yassine-elouafi/" target="_blank"><img
                         src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Twitter"
                         style="border-radius: 0px;"></a>
                 <a href="https://twitter.com/Abdullah_zia_" target="_blank"><img
@@ -83,22 +103,17 @@
                 <a href="https://stackoverflow.com/users/12579494/abdullah-zia" target="_blank"><img
                         src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="Stack"
                         style="border-radius: 0px;"></a>
-                <a href="https://www.facebook.com/abdullah.zia.7545" target="_blank"><img
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="FB"
-                    style="border-radius: 0px;"></a>
-                <a href="https://www.instagram.com/abdullah_zia/" target="_blank"><img
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="Insta"
-                    style="border-radius: 0px;"></a>
                 <a href="https://github.com/abdullah-zia-22" target="_blank"><img
                     src="https://static-00.iconduck.com/assets.00/github-icon-2048x1988-jzvzcf2t.png" 
                     alt="Github"
                     style="border-radius: 0px;"></a>
             </div>
             <!-- Attribution -->
-            <p>Copyright &copy; Muhammad-Abdullah 2023, All rights reserved</p>
+            <p>Copyright &copy; Yassine EL OUAFI 2022, All rights reserved</p>
         </div>
     </footer>
     {% endblock %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/home.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
+    
 </html>

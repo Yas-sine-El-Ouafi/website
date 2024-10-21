@@ -58,3 +58,6 @@ if (currentTheme) {
     toggleSwitch.checked = true;
   }
 }
+
+// JS functionality (optional)
+console.log('Custom JavaScript loaded!');

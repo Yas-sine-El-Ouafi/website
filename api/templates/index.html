@@ -3,22 +3,43 @@
 {% block headersection %}
 
 <section class="header-container">
-  <img class="profile-image" src="https://avatars.githubusercontent.com/u/82393213?v=4" alt="" />
-  <h1>Hey Visitor! I'm Muhammad Abdullah</h1>
-
+  <img class="profile-image" src="{{ url_for('static', filename='assets/DP.jpeg') }}" alt="" />
+  <h1>I'm Yassine EL OUAFI</h1>
   <div class="content-text">
-    <h2>Python Backend Developer</h2>
-    <p>
-      Expertise in Python, Django, FastAPI, Flask, RESTful APIs and DevOps
-    </p>
+    <h2>Data & Sofware Engineer</h2>
   </div>
-  <a href="{{ url_for('contact_page') }}" class="btn btn-secondary">Connect With Me</a>
 </section>
+<div class="container">
+<div class="wrapper fixed-wrapper">
+<section id="terminal">
+  <div id="terminal-container"">
+      <div class="terminal">
+          <div class="window-title" ">
+              <div class="win-buttons">
+                  <a id="close" class="button" href="#"></a>
+                  <a id="min" class="button" href="#"></a>
+                  <a id="max" class="button" href="#"></a>
+              </div>
+              <span class="title">oh-my-zsh</span>
+          </div>
+          <div class="message" bis_skin_checked="1">
+              <span class="prompt"><span class="user">Yassel</span><span class="at">@</span><span class="path">/home/</span>&gt;<span class="caret">$</span></span>
+              <span class="typed">stat Yassine EL OUAFI<br>&gt;<span class="caret">$</span> Skills: Python, Flask, ETL, Data modelling, Data analysis<br> &gt;<span class="caret">$</span> job: Data Engineer at Allianz<br> &gt;<span class="caret">$</span> Hobbies: Chess, football, travel<br> &gt;<span class="caret">$</span> Alias: Yassel<br>&gt;<span class="caret">$</span> highlight:  <a href="/projects/video-stab">real time image stabilization on Android</a>, <a href="/projects/lifehacks">app with 1M+ installs</a><br></span>
+              <form style="">&gt;<span class="caret">$</span>&nbsp;<input type="text" name="response"></form>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+</section>
+<div class="content-text">
+<a href="{{ url_for('contact_page') }}",target="_blank", class="btn btn-secondary">Connect with me</a>
+</div>
 {% endblock %}
 
 {% block body %}
 <section id="projects" class="project-container container">
-  <div class="division"></div>
+
 
   <div class="content-text">
     <h2>Skills</h2>
@@ -141,42 +162,7 @@
 <!-- Projects -->
 <section id="projects" class="project-container container">
   <div class="division"></div>
-
-  <div class="content-text">
-    <h2>Popular Project</h2>
-    <p>Check out some of my projects</p>
-  </div>
-
-  <div class="container">
-    <div class="textcard">
-      <table>
-        <tr>
-          <td>
-            <div class="container">
-              <h3>Sentimantle</h3>
-              <p style="text-align: justify;">Flask REST API for a sentiment analysis project having
-                complex database and queries. Authentication and authorization using JWT. Multiple features like Data addition via
-                File Upload, File Download, Database Views and Stored Procedures.
-                <br>
-                Like the project name says, Sentimantle, it creates a report of a certain aspect of a location and perform sentiment analysis on it's respective aspects</p>
-            </div>
-          </td>
-          <td>
-            <div class="container">
-              <h3>EKL</h3>
-              <p style="text-align: justify;">Elastic Search implementation (Realtime fast searching)
-                in Webapp on large MySQL database using EKL stack. EKL stack is also used by Google
-                for searching. 
-                Elastic Search uses document type NoSQL database, to perform modern search and analytics engine which is based on Apache Lucene.
-                It uses it's own indexing and mappings. After indexing, elasticsearch will create several inverted indices tables, which makes it super fast for searching
-                <br>
-                Developed logstash data pipeline to ingests data from MySQL, transforms it, and then send it to my ES Index</p>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <a href="{{url_for('projects_page')}}" class="btn btn-secondary">See More <i class="fas fa-arrow-right"></i></a>
+  <a href="{{url_for('projects_page')}}" class="btn btn-secondary">Check out  my projects
+    <i class="fas fa-arrow-right"></i></a>
 </section>
 {% endblock %}

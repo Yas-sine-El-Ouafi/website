@@ -1,25 +1,36 @@
 {% extends 'base.html' %}
 
-{% block body %}
-<!-- Projects -->
-<section id="projects" class="project-container container">
+{% block headersection %}
+<section class="header-container">
     <div class="content-text">
-        <h2>Work Portfolio</h2>
+        <h2>My projects</h2>
     </div>
-        {% for card in cards %}
-        <div class="card">
-            <div class="card-header">
-                <h1>{{card.name}}</h1>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{card.description}}</p>
-            </div>
-            {% if card.url %}
-            <div class="container">
-                <a href="{{card.url}}" target="_blank" class="btn btn-secondary">View Project <i class="fab fa-github"></i></a>
-            </div>
-            {% endif %}
-        </div>
-        {% endfor %}
 </section>
 {% endblock %}
+
+{% block body %}
+
+<section class="projects-section">
+    <div class="projects-container">
+        {% if repos and repos | length > 0 %}
+            {% for repo in repos %}
+                <div class="project-card">
+                    <h3>{{ repo.name }}</h3>
+                    <p>{{ repo.description or 'No description available' }}</p>
+                    <p><strong>Language:</strong> {{ repo.language or 'Not specified' }}</p>
+                    <p><strong>Stars:</strong> {{ repo.stargazers_count }}</p>
+                    <div class="project-links">
+                        <a href="{{ repo.html_url }}" target="_blank" class="btn">View Project</a>
+                        <a href="{{ repo.html_url }}/issues" target="_blank" class="btn secondary">View Issues</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No repositories found.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+
+
