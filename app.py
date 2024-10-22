@@ -76,3 +76,6 @@ def projects_page():
 @app.route('/resume')
 def resume():
     return send_file("static/assets/xx.pdf", as_attachment=False)
+
+if __name__=='__main__':
+    app.run()
