@@ -4,9 +4,17 @@ import os
 
 import requests, jsonify
 
+import os
+from dotenv import load_dotenv
+
+# Load variables from the .env file
+load_dotenv()
+
+
+
 # create flask app
 app = Flask(__name__)
-GITHUB_USERNAME = 'Yas-sine-El-Ouafi'
+
 
 def get_projects():
     file_path = os.path.join('api','static', 'assets', 'projects.json')
@@ -48,9 +56,9 @@ def contact_page2():
 
 @app.route('/projects', methods=['GET', 'POST'])
 def projects_page():
-    github_url = f"https://api.github.com/users/{GITHUB_USERNAME}/repos"
+    github_url = f"https://api.github.com/users/{os.getenv(GITHUB_USERNAME)}/repos"
     headers = {
-        'Authorization': f'token {env.GITHUB_TOKEN}',
+        'Authorization': f'token {os.getenv('GITHUB_TOKEN')}',
         'Accept': 'application/vnd.github.v3+json'
     }
     try:
