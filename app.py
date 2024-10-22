@@ -56,9 +56,9 @@ def contact_page2():
 
 @app.route('/projects', methods=['GET', 'POST'])
 def projects_page():
-    github_url = f"https://api.github.com/users/{os.getenv(GITHUB_USERNAME)}/repos"
+    github_url = f"https://api.github.com/users/{os.getenv('GITHUB_USERNAME')}/repos"
     headers = {
-        'Authorization': f'token {os.getenv('GITHUB_TOKEN')}',
+        'Authorization': f'token{os.getenv('GITHUB_TOKEN')}',
         'Accept': 'application/vnd.github.v3+json'
     }
     try:
